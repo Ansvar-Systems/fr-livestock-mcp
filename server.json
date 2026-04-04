@@ -1,16 +1,16 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.Ansvar-Systems/uk-livestock",
-  "description": "UK livestock welfare, feed, health, and movement rules \u2014 8 species, DEFRA codes",
+  "name": "io.github.Ansvar-Systems/fr-livestock",
+  "description": "France livestock — DGAL welfare standards, BDNI identification, movement rules, breeding",
   "repository": {
-    "url": "https://github.com/Ansvar-Systems/uk-livestock-mcp",
+    "url": "https://github.com/Ansvar-Systems/fr-livestock-mcp",
     "source": "github"
   },
   "version": "0.1.0",
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://mcp.ansvar.eu/uk-livestock/mcp"
+      "url": "https://mcp.ansvar.eu/fr-livestock/mcp"
     }
   ]
 }
