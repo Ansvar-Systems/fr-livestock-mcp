@@ -18,53 +18,53 @@ describe('get_movement_rules tool', () => {
     if (existsSync(TEST_DB)) unlinkSync(TEST_DB);
   });
 
-  test('sheep standstill is 6 days', () => {
+  test('sheep notification is 7 days', () => {
     const result = handleGetMovementRules(db, { species: 'sheep' });
     expect(result).toHaveProperty('rules');
     const rules = (result as { rules: { standstill_days: number; rule_type: string }[] }).rules;
-    const standstill = rules.find(r => r.rule_type === 'standstill');
-    expect(standstill).toBeDefined();
-    expect(standstill!.standstill_days).toBe(6);
+    const notification = rules.find(r => r.rule_type === 'notification');
+    expect(notification).toBeDefined();
+    expect(notification!.standstill_days).toBe(7);
   });
 
-  test('cattle standstill is 13 days', () => {
+  test('cattle notification is 7 days', () => {
     const result = handleGetMovementRules(db, { species: 'cattle' });
     expect(result).toHaveProperty('rules');
     const rules = (result as { rules: { standstill_days: number; rule_type: string }[] }).rules;
-    const standstill = rules.find(r => r.rule_type === 'standstill');
-    expect(standstill).toBeDefined();
-    expect(standstill!.standstill_days).toBe(13);
+    const notification = rules.find(r => r.rule_type === 'notification');
+    expect(notification).toBeDefined();
+    expect(notification!.standstill_days).toBe(7);
   });
 
-  test('pig standstill is 20 days', () => {
+  test('pig notification is 7 days', () => {
     const result = handleGetMovementRules(db, { species: 'pigs' });
     expect(result).toHaveProperty('rules');
     const rules = (result as { rules: { standstill_days: number; rule_type: string }[] }).rules;
-    const standstill = rules.find(r => r.rule_type === 'standstill');
-    expect(standstill).toBeDefined();
-    expect(standstill!.standstill_days).toBe(20);
+    const notification = rules.find(r => r.rule_type === 'notification');
+    expect(notification).toBeDefined();
+    expect(notification!.standstill_days).toBe(7);
   });
 
   test('filters by species', () => {
     const result = handleGetMovementRules(db, { species: 'sheep' });
-    expect(result).toHaveProperty('species', 'Sheep');
+    expect(result).toHaveProperty('species', 'Ovins');
   });
 
   test('includes authority and regulation_ref', () => {
     const result = handleGetMovementRules(db, { species: 'sheep' });
     const rules = (result as { rules: { authority: string; regulation_ref: string }[] }).rules;
-    expect(rules[0].authority).toBe('APHA');
-    expect(rules[0].regulation_ref).toContain('Order');
+    expect(rules[0].authority).toContain('BDNI');
+    expect(rules[0].regulation_ref).toContain('Code Rural');
   });
 
   test('includes exceptions', () => {
     const result = handleGetMovementRules(db, { species: 'sheep' });
     const rules = (result as { rules: { exceptions: string }[] }).rules;
-    expect(rules[0].exceptions).toContain('market');
+    expect(rules[0].exceptions).toContain('Transhumance');
   });
 
   test('rejects unsupported jurisdiction', () => {
-    const result = handleGetMovementRules(db, { species: 'sheep', jurisdiction: 'FR' });
+    const result = handleGetMovementRules(db, { species: 'sheep', jurisdiction: 'GB' });
     expect(result).toHaveProperty('error', 'jurisdiction_not_supported');
   });
 
@@ -74,7 +74,7 @@ describe('get_movement_rules tool', () => {
   });
 
   test('looks up by species name case-insensitively', () => {
-    const result = handleGetMovementRules(db, { species: 'Sheep' });
+    const result = handleGetMovementRules(db, { species: 'Ovins' });
     expect(result).toHaveProperty('rules');
   });
 });

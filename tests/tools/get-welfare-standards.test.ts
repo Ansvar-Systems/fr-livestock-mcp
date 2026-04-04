@@ -37,14 +37,14 @@ describe('get_welfare_standards tool', () => {
   test('legal_minimum differs from best_practice', () => {
     const result = handleGetWelfareStandards(db, { species: 'sheep' });
     const standards = (result as { standards: { legal_minimum: string; best_practice: string }[] }).standards;
-    const shelter = standards.find(s => s.legal_minimum?.includes('severe weather'));
-    expect(shelter).toBeDefined();
-    expect(shelter!.best_practice).toContain('year-round');
+    const abri = standards.find(s => s.legal_minimum?.includes('conditions meteorologiques'));
+    expect(abri).toBeDefined();
+    expect(abri!.best_practice).toContain('toute l\'annee');
   });
 
   test('filters by species', () => {
     const result = handleGetWelfareStandards(db, { species: 'cattle' });
-    expect(result).toHaveProperty('species', 'Cattle');
+    expect(result).toHaveProperty('species', 'Bovins');
   });
 
   test('filters by production_system', () => {
@@ -67,7 +67,7 @@ describe('get_welfare_standards tool', () => {
   test('includes regulation_ref and source', () => {
     const result = handleGetWelfareStandards(db, { species: 'pigs' });
     const standards = (result as { standards: { regulation_ref: string; source: string }[] }).standards;
-    expect(standards[0].regulation_ref).toContain('Regulations');
-    expect(standards[0].source).toContain('DEFRA');
+    expect(standards[0].regulation_ref).toContain('Arrete');
+    expect(standards[0].source).toContain('DGAL');
   });
 });

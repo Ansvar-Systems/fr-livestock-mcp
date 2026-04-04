@@ -5,16 +5,16 @@ export function handleAbout() {
   return {
     name: 'France Livestock MCP',
     description:
-      'UK livestock welfare standards, feed requirements, animal health, housing, stocking densities, ' +
-      'movement rules, and breeding guidance. Covers sheep, cattle, and pigs with data from AHDB, ' +
-      'DEFRA welfare codes, and APHA regulations.',
+      'Normes francaises d\'elevage : bien-etre animal, alimentation, sante animale, hebergement, densites, ' +
+      'mouvements et reproduction. Couvre bovins laitiers et allaitants, porcins, volailles, ovins, caprins et equins ' +
+      'avec donnees DGAL, Code Rural, GDS France et IDELE.',
     version: '0.1.0',
     jurisdiction: [...SUPPORTED_JURISDICTIONS],
     data_sources: [
-      'AHDB Livestock Guidance',
-      'DEFRA Welfare Codes of Practice',
-      'APHA Movement Rules',
-      'DEFRA Notifiable Diseases',
+      'DGAL (Direction Generale de l\'Alimentation)',
+      'Code Rural et de la Peche Maritime',
+      'GDS France (Groupements de Defense Sanitaire)',
+      'IDELE (Institut de l\'Elevage)',
     ],
     tools_count: 11,
     links: {

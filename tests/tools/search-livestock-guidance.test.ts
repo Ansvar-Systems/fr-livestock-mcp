@@ -25,7 +25,7 @@ describe('search_livestock_guidance tool', () => {
   });
 
   test('returns results for movement query', () => {
-    const result = handleSearchLivestockGuidance(db, { query: 'standstill' });
+    const result = handleSearchLivestockGuidance(db, { query: 'mouvement bovins' });
     expect(result).toHaveProperty('results_count');
     expect((result as { results_count: number }).results_count).toBeGreaterThan(0);
   });
@@ -39,12 +39,12 @@ describe('search_livestock_guidance tool', () => {
   });
 
   test('rejects unsupported jurisdiction', () => {
-    const result = handleSearchLivestockGuidance(db, { query: 'welfare', jurisdiction: 'FR' });
+    const result = handleSearchLivestockGuidance(db, { query: 'welfare', jurisdiction: 'GB' });
     expect(result).toHaveProperty('error', 'jurisdiction_not_supported');
   });
 
   test('returns results for disease query', () => {
-    const result = handleSearchLivestockGuidance(db, { query: 'disease' });
+    const result = handleSearchLivestockGuidance(db, { query: 'fievre aphteuse' });
     expect(result).toHaveProperty('results_count');
     expect((result as { results_count: number }).results_count).toBeGreaterThan(0);
   });

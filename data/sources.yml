@@ -3,20 +3,62 @@ mcp_name: "France Livestock MCP"
 category: "domain_intelligence"
 
 sources:
-  # TODO: Add France-specific data sources here.
-  # Example:
-  # - name: "National Agriculture Advisory Service"
-  #   authority: "Ministry of Agriculture"
-  #   official_url: "https://example.gov.fr/agriculture"
-  #   retrieval_method: "HTML_SCRAPE"
-  #   format: "HTML"
-  #   authentication: "none"
-  #   update_frequency: "annual"
-  #   license:
-  #     type: "Open Government Licence"
-  #     url: "https://example.gov.fr/licence"
-  #   coverage:
-  #     scope: "National agricultural data"
-  #   languages:
-  #     - "fr"
-  []
+  - name: "DGAL — Direction Generale de l'Alimentation"
+    authority: "Ministere de l'Agriculture et de la Souverainete Alimentaire"
+    official_url: "https://agriculture.gouv.fr/protection-animale"
+    retrieval_method: "HTML_SCRAPE"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "as_amended"
+    license:
+      type: "Licence Ouverte / Open Licence"
+      url: "https://www.etalab.gouv.fr/licence-ouverte-open-licence"
+    coverage:
+      scope: "Reglementation bien-etre animal, normes d'hebergement, prophylaxie obligatoire"
+    languages:
+      - "fr"
+
+  - name: "Code Rural et de la Peche Maritime"
+    authority: "Legifrance / Republique Francaise"
+    official_url: "https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006071367/"
+    retrieval_method: "HTML_SCRAPE"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "as_amended"
+    license:
+      type: "Licence Ouverte / Open Licence"
+      url: "https://www.etalab.gouv.fr/licence-ouverte-open-licence"
+    coverage:
+      scope: "Dispositions legislatives et reglementaires relatives aux animaux d'elevage, identification, mouvements, sante animale"
+    languages:
+      - "fr"
+
+  - name: "GDS France — Groupements de Defense Sanitaire"
+    authority: "GDS France"
+    official_url: "https://www.gdsfrance.org/"
+    retrieval_method: "HTML_SCRAPE"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    license:
+      type: "Usage professionnel"
+      url: "https://www.gdsfrance.org/"
+    coverage:
+      scope: "Prophylaxie collective obligatoire, campagnes de depistage, qualification sanitaire des cheptels"
+    languages:
+      - "fr"
+
+  - name: "IDELE — Institut de l'Elevage"
+    authority: "IDELE"
+    official_url: "https://idele.fr/"
+    retrieval_method: "HTML_SCRAPE"
+    format: "HTML / PDF"
+    authentication: "none"
+    update_frequency: "quarterly"
+    license:
+      type: "Usage professionnel"
+      url: "https://idele.fr/"
+    coverage:
+      scope: "References techniques bovins, ovins, caprins : hebergement, alimentation, reproduction, bien-etre"
+    languages:
+      - "fr"

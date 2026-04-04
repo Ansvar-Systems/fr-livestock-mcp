@@ -1,8 +1,8 @@
 {
   "name": "@ansvar/fr-livestock-mcp",
-  "mcpName": "io.github.ansvar-systems/uk-livestock",
+  "mcpName": "io.github.ansvar-systems/fr-livestock",
   "version": "0.1.0",
-  "description": "UK livestock welfare, feed, health, and movement rules via MCP -- stocking densities, breeding guidance, APHA regulations",
+  "description": "France livestock welfare, feed, health, and movement rules via MCP -- stocking densities, breeding guidance, DGAL/Code Rural regulations",
   "type": "module",
   "main": "dist/server.js",
   "bin": {
@@ -25,7 +25,7 @@
     "freshness:check": "tsx scripts/check-freshness.ts",
     "coverage:update": "tsx scripts/update-coverage.ts"
   },
-  "keywords": ["mcp", "livestock", "welfare", "animal-health", "farming", "movement-rules", "apha"],
+  "keywords": ["mcp", "livestock", "welfare", "animal-health", "farming", "movement-rules", "dgal", "france"],
   "author": "Ansvar Systems <info@ansvar.eu>",
   "license": "Apache-2.0",
   "repository": {

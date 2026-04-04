@@ -1,0 +1,65 @@
+{
+  "mcp_name": "France Livestock MCP",
+  "jurisdiction": "FR",
+  "build_date": "2026-04-04",
+  "status": "populated",
+  "species_count": 8,
+  "species": [
+    {
+      "id": "dairy_cattle",
+      "name": "Bovins laitiers"
+    },
+    {
+      "id": "beef_cattle",
+      "name": "Bovins allaitants"
+    },
+    {
+      "id": "pigs",
+      "name": "Porcins"
+    },
+    {
+      "id": "laying_hens",
+      "name": "Volailles pondeuses"
+    },
+    {
+      "id": "broilers",
+      "name": "Volailles de chair"
+    },
+    {
+      "id": "sheep",
+      "name": "Ovins"
+    },
+    {
+      "id": "goats",
+      "name": "Caprins"
+    },
+    {
+      "id": "horses",
+      "name": "Equins"
+    }
+  ],
+  "welfare_standards_count": 29,
+  "stocking_densities_count": 30,
+  "feed_requirements_count": 12,
+  "movement_rules_count": 17,
+  "animal_health_count": 16,
+  "housing_requirements_count": 11,
+  "breeding_guidance_count": 7,
+  "total_rows": 130,
+  "fts_entries": 122,
+  "sources": [
+    "DGAL (Direction Generale de l'Alimentation)",
+    "Code Rural et de la Peche Maritime",
+    "BDNI (Base de Donnees Nationale d'Identification)",
+    "GDS France (Groupements de Defense Sanitaire)",
+    "IDELE (Institut de l'Elevage)",
+    "IFIP (Institut du Porc)",
+    "ITAVI (Institut Technique de l'Aviculture)",
+    "IFCE (Institut Francais du Cheval et de l'Equitation)",
+    "INRAE (Institut National de Recherche pour l'Agriculture)",
+    "INAO (Institut National de l'Origine et de la Qualite)",
+    "Reglement (CE) 1/2005 (transport)",
+    "Reglement (CE) 1099/2009 (abattage)",
+    "Reglement (UE) 2018/848 (agriculture biologique)"
+  ]
+}

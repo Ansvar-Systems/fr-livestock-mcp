@@ -40,16 +40,16 @@ describe('get_breeding_guidance tool', () => {
   test('parses calendar JSON', () => {
     const result = handleGetBreedingGuidance(db, { species: 'sheep' });
     const guidance = (result as { guidance: { calendar: Record<string, string> }[] }).guidance;
-    expect(guidance[0].calendar).toHaveProperty('mating');
-    expect(guidance[0].calendar).toHaveProperty('lambing');
-    expect(typeof guidance[0].calendar.mating).toBe('string');
+    expect(guidance[0].calendar).toHaveProperty('lutte');
+    expect(guidance[0].calendar).toHaveProperty('agnelage');
+    expect(typeof guidance[0].calendar.lutte).toBe('string');
   });
 
   test('filters by topic', () => {
-    const result = handleGetBreedingGuidance(db, { species: 'sheep', topic: 'lambing' });
+    const result = handleGetBreedingGuidance(db, { species: 'sheep', topic: 'agnelage' });
     expect(result).toHaveProperty('guidance');
     const guidance = (result as { guidance: { topic: string }[] }).guidance;
-    expect(guidance[0].topic).toBe('lambing');
+    expect(guidance[0].topic).toBe('agnelage');
   });
 
   test('returns not_found for unknown species', () => {
