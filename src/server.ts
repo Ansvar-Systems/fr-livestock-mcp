@@ -46,8 +46,8 @@ const TOOLS = [
       type: 'object' as const,
       properties: {
         query: { type: 'string', description: 'Free-text search query' },
-        species: { type: 'string', description: 'Filter by species (e.g. sheep, cattle, pigs)' },
-        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: GB)' },
+        species: { type: 'string', description: 'Filter by species ID: dairy_cattle, beef_cattle, pigs, sheep, goats, horses, laying_hens, broilers. Also accepts aliases like "cattle" (returns both dairy + beef).' },
+        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: FR)' },
         limit: { type: 'number', description: 'Max results (default: 20, max: 50)' },
       },
       required: ['query'],
@@ -55,13 +55,13 @@ const TOOLS = [
   },
   {
     name: 'get_welfare_standards',
-    description: 'Get welfare standards for a species. Returns both legal minimum requirements and best practice recommendations from DEFRA welfare codes.',
+    description: 'Get welfare standards for a species. Returns both legal minimum requirements and best practice recommendations from Code rural et de la peche maritime.',
     inputSchema: {
       type: 'object' as const,
       properties: {
-        species: { type: 'string', description: 'Species ID or name (e.g. sheep, cattle, pigs)' },
+        species: { type: 'string', description: 'Species ID: dairy_cattle, beef_cattle, pigs, sheep, goats, horses, laying_hens, broilers. Also accepts aliases like "cattle".' },
         production_system: { type: 'string', description: 'Filter by production system (e.g. indoor, outdoor, free-range)' },
-        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: GB)' },
+        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: FR)' },
       },
       required: ['species'],
     },
@@ -72,10 +72,10 @@ const TOOLS = [
     inputSchema: {
       type: 'object' as const,
       properties: {
-        species: { type: 'string', description: 'Species ID or name (e.g. sheep, cattle, pigs)' },
+        species: { type: 'string', description: 'Species ID: dairy_cattle, beef_cattle, pigs, sheep, goats, horses, laying_hens, broilers. Also accepts aliases like "cattle".' },
         age_class: { type: 'string', description: 'Age class (e.g. adult, lamb, calf, piglet)' },
         housing_type: { type: 'string', description: 'Housing type (e.g. indoor, outdoor)' },
-        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: GB)' },
+        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: FR)' },
       },
       required: ['species'],
     },
@@ -86,10 +86,10 @@ const TOOLS = [
     inputSchema: {
       type: 'object' as const,
       properties: {
-        species: { type: 'string', description: 'Species ID or name (e.g. sheep, cattle, pigs)' },
+        species: { type: 'string', description: 'Species ID: dairy_cattle, beef_cattle, pigs, sheep, goats, horses, laying_hens, broilers. Also accepts aliases like "cattle".' },
         age_class: { type: 'string', description: 'Age class (e.g. adult, lamb, calf, grower)' },
         production_stage: { type: 'string', description: 'Production stage (e.g. maintenance, lactation, finishing)' },
-        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: GB)' },
+        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: FR)' },
       },
       required: ['species'],
     },
@@ -101,8 +101,8 @@ const TOOLS = [
       type: 'object' as const,
       properties: {
         query: { type: 'string', description: 'Search term (condition name, symptom, or cause)' },
-        species: { type: 'string', description: 'Filter by species (e.g. sheep, cattle, pigs)' },
-        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: GB)' },
+        species: { type: 'string', description: 'Filter by species ID: dairy_cattle, beef_cattle, pigs, sheep, goats, horses, laying_hens, broilers. Also accepts aliases like "cattle".' },
+        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: FR)' },
       },
       required: ['query'],
     },
@@ -113,23 +113,23 @@ const TOOLS = [
     inputSchema: {
       type: 'object' as const,
       properties: {
-        species: { type: 'string', description: 'Species ID or name (e.g. sheep, cattle, pigs)' },
+        species: { type: 'string', description: 'Species ID: dairy_cattle, beef_cattle, pigs, sheep, goats, horses, laying_hens, broilers. Also accepts aliases like "cattle".' },
         age_class: { type: 'string', description: 'Age class (e.g. adult, lamb, calf)' },
         system: { type: 'string', description: 'Housing system (e.g. indoor, outdoor)' },
-        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: GB)' },
+        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: FR)' },
       },
       required: ['species'],
     },
   },
   {
     name: 'get_movement_rules',
-    description: 'Get livestock movement rules including standstill periods, exceptions, and APHA regulation references. Critical for disease control compliance.',
+    description: 'Get livestock movement rules including identification, reporting, and disease restriction zones. Critical for biosecurity and disease control compliance.',
     inputSchema: {
       type: 'object' as const,
       properties: {
-        species: { type: 'string', description: 'Species ID or name (e.g. sheep, cattle, pigs)' },
+        species: { type: 'string', description: 'Species ID: dairy_cattle, beef_cattle, pigs, sheep, goats, horses, laying_hens, broilers. Also accepts aliases like "cattle".' },
         rule_type: { type: 'string', description: 'Filter by rule type (e.g. standstill, reporting, identification)' },
-        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: GB)' },
+        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: FR)' },
       },
       required: ['species'],
     },
@@ -140,9 +140,9 @@ const TOOLS = [
     inputSchema: {
       type: 'object' as const,
       properties: {
-        species: { type: 'string', description: 'Species ID or name (e.g. sheep, cattle, pigs)' },
+        species: { type: 'string', description: 'Species ID: dairy_cattle, beef_cattle, pigs, sheep, goats, horses, laying_hens, broilers. Also accepts aliases like "cattle".' },
         topic: { type: 'string', description: 'Filter by topic (e.g. gestation, mating, lambing)' },
-        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: GB)' },
+        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: FR)' },
       },
       required: ['species'],
     },
